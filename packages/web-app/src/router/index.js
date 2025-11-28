@@ -22,6 +22,21 @@ const router = createRouter({
       name: "try",
       component: () => import("../views/Try.vue"),
     },
+    {
+      path: "/consulting",
+      name: "consulting",
+      component: () => import("../views/ConsultingLandingView.vue"),
+    },
+    {
+      path: "/byoticabio",
+      name: "byoticabio",
+      component: () => import("../views/ByoticaBioLandingView.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("../views/HomeView.vue"),
+    },
   ],
   linkActiveClass: "route-active",
   scrollBehavior() {

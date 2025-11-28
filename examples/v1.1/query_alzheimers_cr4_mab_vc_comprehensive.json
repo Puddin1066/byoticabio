@@ -1,0 +1,124 @@
+{
+  "message": {
+    "query_graph": {
+      "nodes": {
+        "alzheimers": {
+          "categories": ["biolink:Disease"],
+          "ids": [
+            "MONDO:0004975",
+            "UMLS:C0002395",
+            "DOID:10652"
+          ],
+          "is_set": true
+        },
+        "cr4_genes": {
+          "categories": ["biolink:Gene"],
+          "ids": [
+            "HGNC:2343",
+            "NCBIGene:2343",
+            "HGNC:2342",
+            "NCBIGene:2342"
+          ],
+          "is_set": true
+        },
+        "complement_genes": {
+          "categories": ["biolink:Gene"]
+        },
+        "alzheimers_genes": {
+          "categories": ["biolink:Gene", "biolink:Protein"]
+        },
+        "mab_drugs": {
+          "categories": [
+            "biolink:Drug",
+            "biolink:MolecularEntity"
+          ]
+        },
+        "pathways": {
+          "categories": [
+            "biolink:Pathway",
+            "biolink:BiologicalProcess"
+          ]
+        },
+        "related_diseases": {
+          "categories": ["biolink:Disease"]
+        },
+        "clinical_trials": {
+          "categories": ["biolink:InformationContentEntity"]
+        }
+      },
+      "edges": {
+        "alz_to_genes": {
+          "subject": "alzheimers",
+          "object": "alzheimers_genes",
+          "predicates": [
+            "biolink:gene_associated_with_condition",
+            "biolink:caused_by",
+            "biolink:related_to"
+          ]
+        },
+        "alz_to_cr4": {
+          "subject": "alzheimers",
+          "object": "cr4_genes",
+          "predicates": [
+            "biolink:gene_associated_with_condition",
+            "biolink:related_to",
+            "biolink:associated_with"
+          ]
+        },
+        "cr4_to_complement": {
+          "subject": "cr4_genes",
+          "object": "complement_genes",
+          "predicates": [
+            "biolink:interacts_with",
+            "biolink:participates_in",
+            "biolink:related_to"
+          ]
+        },
+        "cr4_to_mab": {
+          "subject": "cr4_genes",
+          "object": "mab_drugs",
+          "predicates": [
+            "biolink:targets",
+            "biolink:treats",
+            "biolink:interacts_with"
+          ],
+          "knowledge_type": "inferred"
+        },
+        "alz_to_mab": {
+          "subject": "alzheimers",
+          "object": "mab_drugs",
+          "predicates": [
+            "biolink:treats",
+            "biolink:related_to"
+          ],
+          "knowledge_type": "inferred"
+        },
+        "genes_to_pathways": {
+          "subject": "alzheimers_genes",
+          "object": "pathways",
+          "predicates": [
+            "biolink:participates_in",
+            "biolink:related_to"
+          ]
+        },
+        "cr4_to_pathways": {
+          "subject": "cr4_genes",
+          "object": "pathways",
+          "predicates": [
+            "biolink:participates_in",
+            "biolink:related_to"
+          ]
+        },
+        "alz_to_related": {
+          "subject": "alzheimers",
+          "object": "related_diseases",
+          "predicates": [
+            "biolink:related_to",
+            "biolink:coexists_with"
+          ]
+        }
+      }
+    }
+  }
+}
+

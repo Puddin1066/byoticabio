@@ -1,0 +1,52 @@
+{
+  "message": {
+    "query_graph": {
+      "nodes": {
+        "n0": {
+          "categories": ["biolink:Disease"],
+          "ids": ["MONDO:0004975"]
+        },
+        "n1": {
+          "categories": ["biolink:Gene"]
+        },
+        "n2": {
+          "categories": ["biolink:Gene"],
+          "ids": [
+            "NCBIGene:2343",
+            "HGNC:2343"
+          ],
+          "is_set": true
+        },
+        "n3": {
+          "categories": [
+            "biolink:Drug",
+            "biolink:MolecularEntity"
+          ]
+        }
+      },
+      "edges": {
+        "e01": {
+          "subject": "n0",
+          "object": "n1"
+        },
+        "e02": {
+          "subject": "n0",
+          "object": "n2"
+        },
+        "e03": {
+          "subject": "n2",
+          "object": "n3",
+          "predicates": ["biolink:targets", "biolink:treats"],
+          "knowledge_type": "inferred"
+        },
+        "e04": {
+          "subject": "n0",
+          "object": "n3",
+          "predicates": ["biolink:treats"],
+          "knowledge_type": "inferred"
+        }
+      }
+    }
+  }
+}
+

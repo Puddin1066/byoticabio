@@ -1,0 +1,28 @@
+{
+  "message": {
+    "query_graph": {
+      "nodes": {
+        "n0": {
+          "categories": ["biolink:Gene"],
+          "ids": ["NCBIGene:2343", "HGNC:2343"],
+          "is_set": true
+        },
+        "n1": {
+          "categories": [
+            "biolink:Drug",
+            "biolink:MolecularEntity"
+          ]
+        }
+      },
+      "edges": {
+        "e01": {
+          "subject": "n0",
+          "object": "n1",
+          "predicates": ["biolink:targets", "biolink:treats"],
+          "knowledge_type": "inferred"
+        }
+      }
+    }
+  }
+}
+

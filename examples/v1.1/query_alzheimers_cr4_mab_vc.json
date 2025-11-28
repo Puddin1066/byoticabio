@@ -1,0 +1,115 @@
+{
+  "message": {
+    "query_graph": {
+      "nodes": {
+        "n0": {
+          "categories": ["biolink:Disease"],
+          "ids": [
+            "MONDO:0004975",
+            "UMLS:C0002395",
+            "DOID:10652"
+          ],
+          "is_set": true
+        },
+        "n1": {
+          "categories": ["biolink:Gene", "biolink:Protein"]
+        },
+        "n2": {
+          "categories": ["biolink:Gene"],
+          "ids": [
+            "HGNC:2343",
+            "NCBIGene:2343"
+          ],
+          "is_set": true
+        },
+        "n3": {
+          "categories": ["biolink:Gene", "biolink:Protein"]
+        },
+        "n4": {
+          "categories": [
+            "biolink:Drug",
+            "biolink:ChemicalEntity",
+            "biolink:MolecularEntity"
+          ]
+        },
+        "n5": {
+          "categories": ["biolink:Pathway", "biolink:BiologicalProcess"]
+        },
+        "n6": {
+          "categories": ["biolink:Gene"]
+        }
+      },
+      "edges": {
+        "e01": {
+          "subject": "n0",
+          "object": "n1",
+          "predicates": [
+            "biolink:gene_associated_with_condition",
+            "biolink:related_to",
+            "biolink:associated_with"
+          ]
+        },
+        "e02": {
+          "subject": "n0",
+          "object": "n2",
+          "predicates": [
+            "biolink:gene_associated_with_condition",
+            "biolink:related_to"
+          ]
+        },
+        "e03": {
+          "subject": "n2",
+          "object": "n3",
+          "predicates": [
+            "biolink:interacts_with",
+            "biolink:related_to",
+            "biolink:physically_interacts_with"
+          ]
+        },
+        "e04": {
+          "subject": "n3",
+          "object": "n4",
+          "predicates": [
+            "biolink:treats",
+            "biolink:targets",
+            "biolink:interacts_with"
+          ]
+        },
+        "e05": {
+          "subject": "n0",
+          "object": "n4",
+          "predicates": [
+            "biolink:treats",
+            "biolink:related_to"
+          ],
+          "knowledge_type": "inferred"
+        },
+        "e06": {
+          "subject": "n1",
+          "object": "n5",
+          "predicates": [
+            "biolink:participates_in",
+            "biolink:related_to"
+          ]
+        },
+        "e07": {
+          "subject": "n2",
+          "object": "n5",
+          "predicates": [
+            "biolink:participates_in",
+            "biolink:related_to"
+          ]
+        },
+        "e08": {
+          "subject": "n5",
+          "object": "n6",
+          "predicates": [
+            "biolink:has_participant",
+            "biolink:related_to"
+          ]
+        }
+      }
+    }
+  }
+}
+
