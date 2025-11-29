@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && cd packages/web-app && pnpm build",
+  "buildCommand": "pnpm install && pnpm build",
   "outputDirectory": "dist",
   "devCommand": "pnpm dev",
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install",
   "framework": "vite",
   "rewrites": [
     {
