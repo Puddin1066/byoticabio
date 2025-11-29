@@ -87,5 +87,8 @@
     "tailwind-css",
     "pinia",
     "svg"
-  ]
+  ],
+  "engines": {
+    "node": "20.x"
+  }
 }
