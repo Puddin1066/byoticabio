@@ -5,7 +5,6 @@
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
   "framework": "vite",
-  "nodeVersion": "20.x",
   "rewrites": [
     {
       "source": "/(.*)",
