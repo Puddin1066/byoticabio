@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && cd packages/web-app && pnpm build",
+  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile --filter=@marcodarko/btewebapp... && cd packages/web-app && pnpm build",
   "outputDirectory": "dist",
   "devCommand": "pnpm dev",
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile --filter=@marcodarko/btewebapp...",
   "framework": "vite",
   "rewrites": [
     {
