@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import ByoticaBioLandingView from "../views/ByoticaBioLandingView.vue";
 import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
@@ -7,7 +8,28 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
+      component: ByoticaBioLandingView,
+    },
+    {
+      path: "/byoticabio",
+      name: "byoticabio",
+      component: ByoticaBioLandingView,
+    },
+    {
+      path: "/consulting",
+      name: "consulting",
+      component: () => import("../views/ConsultingLandingView.vue"),
+    },
+    // Internal BTE services routes (for internal operations)
+    {
+      path: "/bte",
+      name: "bte",
       component: HomeView,
+    },
+    {
+      path: "/try-it",
+      name: "try",
+      component: () => import("../views/Try.vue"),
     },
     {
       path: "/about",
@@ -18,24 +40,9 @@ const router = createRouter({
       component: () => import("../views/AboutView.vue"),
     },
     {
-      path: "/try-it",
-      name: "try",
-      component: () => import("../views/Try.vue"),
-    },
-    {
-      path: "/consulting",
-      name: "consulting",
-      component: () => import("../views/ConsultingLandingView.vue"),
-    },
-    {
-      path: "/byoticabio",
-      name: "byoticabio",
-      component: () => import("../views/ByoticaBioLandingView.vue"),
-    },
-    {
       path: "/:pathMatch(.*)*",
       name: "not-found",
-      component: () => import("../views/HomeView.vue"),
+      component: ByoticaBioLandingView,
     },
   ],
   linkActiveClass: "route-active",
