@@ -21,7 +21,10 @@
     "emailjs:template": "node create-emailjs-template.js",
     "emailjs:template:html": "node create-emailjs-template.js --html",
     "emailjs:template:plain": "node create-emailjs-template.js --plain",
-    "emailjs:setup-template": "node setup-emailjs-template.js"
+    "emailjs:setup-template": "node setup-emailjs-template.js",
+    "vercel:domain": "node add-vercel-domain.js",
+    "vercel:dns": "node get-vercel-dns-records.js",
+    "vercel:domain-status": "node check-domain-status.js"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.10.2",
@@ -33,6 +36,7 @@
     "@emailjs/browser": "^4.4.1",
     "@hubspot/api-client": "^13.4.0",
     "@tailwindcss/forms": "^0.5.6",
+    "@unhead/vue": "^2.0.19",
     "axios": "^1.5.1",
     "codemirror": "^6.0.1",
     "cytoscape": "^3.26.0",

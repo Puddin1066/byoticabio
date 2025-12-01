@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useHead } from '@unhead/vue'
 import BTE from '../components/BTE.vue'
 import LinkOut from '../components/LinkOutIcon.vue'
 import TestingDashboard from '../components/TestingDashboard.vue'
@@ -20,6 +21,223 @@ import { trackHubSpotPageView, trackHubSpotFormSubmit } from '../utils/hubspot'
 import { testInquiryFlow } from '../utils/testInquiryFlow'
 import { sendTestEmailTo } from '../utils/sendTestEmailTo'
 
+// SEO Meta Tags
+const siteUrl = 'https://bioticabio.com'
+const siteTitle = 'Bio KGnome: Complete Biotech Due Diligence in 2-5 Days | BioticaBio.com'
+const siteDescription = 'Complete due diligence in 2-5 days vs. 2-3 months. Find hidden competitive threats, validate scientific claims, and discover white space opportunities. Used by VCs to avoid $2-5M mistakes. Evidence-backed intelligence from 127+ biomedical databases.'
+const siteKeywords = 'biotech due diligence, VC due diligence, biotech intelligence, knowledge graph, competitive intelligence, drug discovery, target identification, pharma competitive intelligence, biomedical databases, multi-hop reasoning, IIT-developed, NIH/NCATS, Bio KGnome, BioticaBio'
+
+useHead({
+  title: siteTitle,
+  meta: [
+    // Primary SEO
+    { name: 'description', content: siteDescription },
+    { name: 'keywords', content: siteKeywords },
+    { name: 'author', content: 'BioticaBio.com' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    { name: 'language', content: 'English' },
+    { name: 'revisit-after', content: '7 days' },
+    { name: 'rating', content: 'general' },
+    
+    // Open Graph / Facebook
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: siteUrl },
+    { property: 'og:title', content: siteTitle },
+    { property: 'og:description', content: siteDescription },
+    { property: 'og:image', content: `${siteUrl}/og-image.jpg` },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: 'Bio KGnome - Biotech Intelligence Platform' },
+    { property: 'og:site_name', content: 'BioticaBio.com' },
+    { property: 'og:locale', content: 'en_US' },
+    
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:url', content: siteUrl },
+    { name: 'twitter:title', content: siteTitle },
+    { name: 'twitter:description', content: siteDescription },
+    { name: 'twitter:image', content: `${siteUrl}/og-image.jpg` },
+    { name: 'twitter:image:alt', content: 'Bio KGnome - Biotech Intelligence Platform' },
+    { name: 'twitter:creator', content: '@bioticabio' },
+    { name: 'twitter:site', content: '@bioticabio' },
+    
+    // Additional SEO
+    { name: 'theme-color', content: '#3b82f6' },
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+    { name: 'format-detection', content: 'telephone=no' },
+    
+    // Business/Organization
+    { name: 'geo.region', content: 'US' },
+    { name: 'geo.placename', content: 'United States' },
+    { name: 'ICBM', content: '37.7749, -122.4194' },
+  ],
+  link: [
+    { rel: 'canonical', href: siteUrl },
+    { rel: 'alternate', hreflang: 'en', href: siteUrl },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ProfessionalService',
+        '@id': `${siteUrl}#service`,
+        name: 'Bio KGnome - Biotech Intelligence Platform',
+        alternateName: 'BioticaBio.com',
+        description: siteDescription,
+        url: siteUrl,
+        logo: `${siteUrl}/logo.png`,
+        image: `${siteUrl}/og-image.jpg`,
+        serviceType: [
+          'Biotech Due Diligence',
+          'VC Due Diligence',
+          'Competitive Intelligence',
+          'Drug Discovery Support',
+          'Target Identification',
+          'Knowledge Graph Intelligence'
+        ],
+        areaServed: {
+          '@type': 'Place',
+          name: 'Global'
+        },
+        audience: {
+          '@type': 'Audience',
+          audienceType: [
+            'Venture Capitalists',
+            'Investment Firms',
+            'Pharmaceutical Companies',
+            'Biotechnology Companies',
+            'CROs',
+            'Research Organizations'
+          ]
+        },
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          description: 'Complete due diligence in 2-5 days. Pricing scales with project needs.'
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '47',
+          bestRating: '5',
+          worstRating: '1'
+        },
+        provider: {
+          '@type': 'Organization',
+          name: 'BioticaBio.com',
+          url: siteUrl,
+          logo: `${siteUrl}/logo.png`,
+          foundingDate: '2024',
+          memberOf: {
+            '@type': 'Organization',
+            name: 'NIH/NCATS Translator Network'
+          },
+          knowsAbout: [
+            'Knowledge Graph Syndication',
+            'Multi-hop Reasoning',
+            'Biotech Due Diligence',
+            'Competitive Intelligence',
+            'Drug Discovery',
+            'NCATS Translator'
+          ]
+        }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${siteUrl}#organization`,
+        name: 'BioticaBio.com',
+        url: siteUrl,
+        logo: `${siteUrl}/logo.png`,
+        description: 'AI-powered knowledge graph intelligence platform for biotech due diligence and competitive intelligence',
+        foundingDate: '2024',
+        founder: {
+          '@type': 'Person',
+          name: 'John Round',
+          jobTitle: 'Founder & Principal Consultant'
+        },
+        memberOf: {
+          '@type': 'Organization',
+          name: 'NIH/NCATS Translator Network'
+        },
+        sameAs: [
+          'https://github.com/biothings/biothings_explorer',
+          'https://api.bte.ncats.io'
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${siteUrl}#website`,
+        url: siteUrl,
+        name: 'BioticaBio.com',
+        description: siteDescription,
+        publisher: {
+          '@id': `${siteUrl}#organization`
+        },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteUrl}/?q={search_term_string}`
+          },
+          'query-input': 'required name=search_term_string'
+        }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How long does biotech due diligence take with Bio KGnome?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Bio KGnome delivers complete due diligence in 2-5 days compared to traditional methods that take 2-3 months. This 92% time reduction helps VCs meet tight deal timelines and avoid costly delays.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the ROI for small VCs using Bio KGnome?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Small VCs typically save $25k-$75k per partner per year by reducing due diligence timelines and avoiding $2-5M mistakes. The platform helps identify hidden competitive threats and safety concerns that traditional methods miss.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How many biomedical databases does Bio KGnome query?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Bio KGnome simultaneously queries 127+ biomedical knowledge sources including MyGene.info, ChEMBL, DrugBank, ClinicalTrials.gov, UniProt, Reactome, SEMMEDDB, USPTO Patent API, and many more.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is Bio KGnome suitable for small biotech teams?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, Bio KGnome is designed for small teams. No enterprise IT required, set up in days not months, pricing that scales, and direct access to the founder. Perfect for 3-5 person teams and small biotech startups.'
+            }
+          }
+        ]
+      })
+    }
+  ]
+})
+
 const contactForm = ref({
   name: '',
   email: '',
@@ -35,16 +253,73 @@ const isScrolled = ref(false)
 const knowledgeGraphs = ref([])
 const loadingGraphs = ref(true)
 const showAllGraphs = ref(false)
+const expandedCaseStudy1 = ref(false)
+const expandedCaseStudy2 = ref(false)
 const metaKGStats = ref({
   nodeTypes: 0,
   predicates: 0,
   edges: 0,
   idPrefixes: new Set()
 })
+const parallaxOffset = ref(0)
+const graphAnimationFrame = ref(null)
 
 const BTE_API_URL = 'https://api.bte.ncats.io'
 const scrollHandlerRef = ref(null)
 const isDev = import.meta.env.DEV
+
+// Parallax scroll handler
+const handleParallaxScroll = () => {
+  const scrollY = window.scrollY || window.pageYOffset
+  parallaxOffset.value = scrollY * 0.5
+}
+
+// Animated knowledge graph data for parallax banner
+const parallaxGraphNodes = ref([
+  { id: 'gene', x: 100, y: 150, color: '#3b82f6', size: 20 },
+  { id: 'protein', x: 250, y: 100, color: '#8b5cf6', size: 24 },
+  { id: 'disease', x: 400, y: 180, color: '#ec4899', size: 22 },
+  { id: 'drug', x: 550, y: 120, color: '#10b981', size: 26 },
+  { id: 'pathway', x: 700, y: 160, color: '#f59e0b', size: 20 },
+  { id: 'trial', x: 850, y: 90, color: '#06b6d4', size: 18 },
+  { id: 'biomarker', x: 1000, y: 140, color: '#6366f1', size: 22 },
+  { id: 'target', x: 1150, y: 200, color: '#14b8a6', size: 24 },
+  { id: 'mechanism', x: 200, y: 250, color: '#0ea5e9', size: 20 },
+  { id: 'indication', x: 350, y: 280, color: '#8b5cf6', size: 18 },
+  { id: 'compound', x: 500, y: 240, color: '#ef4444', size: 22 },
+  { id: 'network', x: 650, y: 260, color: '#10b981', size: 24 },
+  { id: 'evidence', x: 800, y: 220, color: '#f59e0b', size: 20 },
+  { id: 'insight', x: 950, y: 280, color: '#6366f1', size: 26 }
+])
+
+const parallaxGraphEdges = ref([
+  { from: 'gene', to: 'protein', strength: 0.8 },
+  { from: 'protein', to: 'pathway', strength: 0.6 },
+  { from: 'pathway', to: 'disease', strength: 0.7 },
+  { from: 'drug', to: 'target', strength: 0.9 },
+  { from: 'target', to: 'mechanism', strength: 0.8 },
+  { from: 'mechanism', to: 'indication', strength: 0.7 },
+  { from: 'compound', to: 'trial', strength: 0.6 },
+  { from: 'trial', to: 'biomarker', strength: 0.8 },
+  { from: 'biomarker', to: 'evidence', strength: 0.9 },
+  { from: 'evidence', to: 'insight', strength: 0.7 },
+  { from: 'network', to: 'insight', strength: 0.8 },
+  { from: 'gene', to: 'disease', strength: 0.5 },
+  { from: 'drug', to: 'pathway', strength: 0.6 },
+  { from: 'protein', to: 'target', strength: 0.7 }
+])
+
+// Animate graph nodes
+const animateGraph = () => {
+  parallaxGraphNodes.value.forEach((node, index) => {
+    const time = Date.now() * 0.001
+    const baseX = node.x
+    const baseY = node.y
+    node.x = baseX + Math.sin(time + index) * 15
+    node.y = baseY + Math.cos(time * 0.7 + index) * 10
+  })
+  graphAnimationFrame.value = requestAnimationFrame(animateGraph)
+}
 
 // Case Study 1: VC Series B Due Diligence - Graph Data
 const caseStudy1Nodes = ref([
@@ -202,6 +477,29 @@ const handleFormFieldChange = (formType, fieldName) => {
   trackFormField(formType, fieldName, 'change')
 }
 
+// Market-specific CTA handlers
+const handleMarketCTAClick = (market, location) => {
+  trackCTAClick(`market_${market}`, location)
+  showContactForm.value = true
+  // Pre-fill project type based on market
+  if (market === 'vc') {
+    contactForm.value.projectType = 'due-diligence'
+  } else if (market === 'biotech') {
+    contactForm.value.projectType = 'drug-discovery'
+  } else if (market === 'pharma') {
+    contactForm.value.projectType = 'competitive-intel'
+  } else if (market === 'cro') {
+    contactForm.value.projectType = 'custom-integration'
+  }
+  trackFormOpen('contact')
+}
+
+// Get node position for parallax graph
+const getNodePosition = (nodeId) => {
+  const node = parallaxGraphNodes.value.find(n => n.id === nodeId)
+  return node ? { x: node.x, y: node.y } : { x: 0, y: 0 }
+}
+
 const fetchKnowledgeGraphs = async () => {
   try {
     loadingGraphs.value = true
@@ -344,6 +642,7 @@ onMounted(() => {
   let lastScrollPercentage = 0
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 50
+    handleParallaxScroll()
     
     // Track scroll depth
     const scrollTop = window.scrollY || document.documentElement.scrollTop
@@ -383,6 +682,9 @@ onMounted(() => {
   // Fetch knowledge graphs
   fetchKnowledgeGraphs()
   
+  // Start graph animation
+  animateGraph()
+  
   // Make E2E test function available in dev mode
   if (isDev && typeof window !== 'undefined') {
     window.testInquiryFlow = testInquiryFlow
@@ -407,41 +709,44 @@ onUnmounted(() => {
   if (scrollHandlerRef.value) {
     window.removeEventListener('scroll', scrollHandlerRef.value)
   }
+  if (graphAnimationFrame.value) {
+    cancelAnimationFrame(graphAnimationFrame.value)
+  }
 })
 </script>
 
 <template>
   <div class="min-h-screen bg-white">
-    <!-- Premium Navigation -->
+    <!-- Vercel-inspired Navigation -->
     <nav 
       :class="[
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        'vercel-nav transition-all duration-300',
+        isScrolled ? 'shadow-sm' : ''
       ]"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
+      <div class="vercel-container px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
           <div class="flex-shrink-0">
-            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-              ByoticaBio.ai
+            <a href="#" class="text-xl font-semibold text-black hover:text-vercel-gray-700 transition-colors">
+              BioticaBio.com
             </a>
           </div>
-          <div class="hidden md:flex space-x-8">
-            <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
-            <a href="#results" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Results</a>
-            <a href="#cases" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Case Studies</a>
-            <a href="#technology" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Technology</a>
-            <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
+          <div class="hidden md:flex items-center space-x-6">
+            <a href="#markets" class="text-sm font-medium text-vercel-gray-600 hover:text-black transition-colors">For Your Market</a>
+            <a href="#services" class="text-sm font-medium text-vercel-gray-600 hover:text-black transition-colors">What You Get</a>
+            <a href="#results" class="text-sm font-medium text-vercel-gray-600 hover:text-black transition-colors">Results</a>
+            <a href="#cases" class="text-sm font-medium text-vercel-gray-600 hover:text-black transition-colors">Case Studies</a>
+            <a href="#technology" class="text-sm font-medium text-vercel-gray-600 hover:text-black transition-colors">Technology</a>
           </div>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-3">
             <button 
-              @click="handleCTAClick('free_consultation', 'nav')"
-              class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              @click="handleCTAClick('free_assessment', 'nav')"
+              class="vercel-button-primary text-sm px-4 py-2"
             >
-              Free Consultation
+              Free Assessment
             </button>
-            <button class="md:hidden text-gray-700">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button class="md:hidden text-vercel-gray-600 hover:text-black transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
@@ -450,80 +755,335 @@ onUnmounted(() => {
       </div>
     </nav>
 
-    <!-- Hero Section - Agency Focused -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <!-- Vercel-inspired Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMxRTI5M0YiIGZpbGwtb3BhY2l0eT0iMC40Ij48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIxLjUiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
-        <BTE class="absolute -left-80 -top-28 opacity-10"></BTE>
+        <div class="absolute inset-0 bg-gradient-to-br from-vercel-gray-50 via-white to-vercel-gray-50"></div>
+        <BTE class="absolute -left-80 -top-28 opacity-5"></BTE>
       </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div class="relative z-10 vercel-container px-4 sm:px-6 lg:px-8 py-32">
         <div class="text-center">
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20">
-            <span class="text-blue-400 text-sm font-medium">Advanced Knowledge Graph Intelligence</span>
-            </div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
-              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-8">
+            <span class="vercel-badge text-vercel-gray-700">Bio KGnome</span>
+            <span class="vercel-badge text-vercel-gray-700 border-green-200 bg-green-50">
+              <svg class="w-3 h-3 mr-1.5 inline" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
-              <span class="text-green-400 text-sm font-semibold">Powered by NIH/NCATS Technology</span>
-            </div>
+              IIT-Developed • NIH/NCATS
+            </span>
+            <span class="vercel-badge text-vercel-gray-700 border-blue-200 bg-blue-50">
+              The Palantir of Biotech Intelligence
+            </span>
           </div>
 
-          <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-            Make Better Biotech Decisions, Faster
-            <span class="block bg-gradient-to-r from-blue-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
-              Get Answers in Days, Not Months
+          <h1 class="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight tracking-tight">
+            Due Diligence Taking 2-3 Months?
+            <span class="block text-red-600 mt-2 text-3xl md:text-4xl">
+              You're Missing Critical Risks.
             </span>
           </h1>
 
-          <p class="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto leading-relaxed">
-            <strong>Novel multi-hop reasoning</strong> across 100+ biomedical databases simultaneously. 
-            Discover hidden connections competitors miss. Reduce investment risk. Accelerate deals. 
-            <strong>No blind spots. No missed opportunities.</strong>
+          <p class="text-xl md:text-2xl text-vercel-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed font-normal">
+            Complete DD in <strong class="text-black">2-5 days</strong> with evidence-backed intelligence. 
+            Used by VCs to avoid <strong class="text-black">$2-5M mistakes</strong> and biotechs to accelerate research programs.
           </p>
           
-          <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-            Powered by <strong>advanced knowledge graph engineering</strong> first developed at Indian Institute of Technology, 
-            integrated with NIH/NCATS Translator infrastructure. The only platform that queries the entire biomedical knowledge graph in real-time.
+          <p class="text-lg text-vercel-gray-500 mb-12 max-w-2xl mx-auto">
+            Find hidden competitive threats, validate scientific claims, and discover white space opportunities. 
+            <strong class="text-vercel-gray-700">Evidence-backed. BD-ready. Boardroom-ready.</strong>
           </p>
 
           <!-- Primary CTAs -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-16">
             <button 
-              @click="handleCTAClick('get_free_assessment', 'hero')"
-              class="group px-8 py-4 bg-white text-blue-900 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+              @click="handleCTAClick('free_assessment', 'hero')"
+              class="vercel-button-primary px-8 py-4 text-lg font-semibold flex items-center space-x-2"
             >
-              <span>Get Free Assessment</span>
-              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span>Get Free 30-Min Assessment</span>
+              <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
             </button>
             <button 
-              @click="handleDemoClick('hero')"
-              class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-all duration-300"
+              @click="handleCTAClick('see_first_report', 'hero')"
+              class="vercel-button px-8 py-4 text-lg font-semibold"
             >
-              See How It Works
+              See Your First Report in 48 Hours
             </button>
           </div>
 
           <!-- Trust Indicators -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2">2-5 Days</div>
-              <div class="text-gray-400">Project Delivery</div>
-              <div class="text-sm text-gray-500 mt-1">vs. 2-3 months = faster deals, lower risk</div>
+              <div class="text-4xl md:text-5xl font-bold text-black mb-2">2-5 Days</div>
+              <div class="text-vercel-gray-600 text-sm font-medium">vs. 2-3 Months</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">Complete due diligence in days, not months</div>
             </div>
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2">100+ APIs</div>
-              <div class="text-gray-400">Simultaneous Query</div>
-              <div class="text-sm text-gray-500 mt-1">Novel capability - only platform that does this</div>
+              <div class="text-4xl md:text-5xl font-bold text-black mb-2">$25k-$75k</div>
+              <div class="text-vercel-gray-600 text-sm font-medium">Saved Per Partner/Year</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">Typical ROI for small VCs and biotechs</div>
             </div>
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2">NCATS</div>
-              <div class="text-gray-400">Government-Backed</div>
-              <div class="text-sm text-gray-500 mt-1">Production-ready, commercially available</div>
+              <div class="text-4xl md:text-5xl font-bold text-black mb-2">Evidence</div>
+              <div class="text-vercel-gray-600 text-sm font-medium">Every Answer Grounded</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">All answers cite exact sources—BD-ready, diligence-ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax Knowledge Graph Banner -->
+    <section class="relative h-[600px] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+      <!-- Parallax Background Layer -->
+      <div 
+        class="absolute inset-0 opacity-20"
+        :style="{ transform: `translateY(${parallaxOffset * 0.3}px)` }"
+      >
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+      </div>
+      
+      <!-- Animated Knowledge Graph Canvas -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <svg 
+          class="w-full h-full"
+          viewBox="0 0 1400 400"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <defs>
+            <!-- Glow filters for nodes -->
+            <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1.5 0" result="glow"/>
+              <feBlend in="SourceGraphic" in2="glow" mode="normal"/>
+            </filter>
+            
+            <!-- Gradient for edges -->
+            <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:rgba(59,130,246,0.6);stop-opacity:1" />
+              <stop offset="50%" style="stop-color:rgba(139,92,246,0.4);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgba(236,72,153,0.6);stop-opacity:1" />
+            </linearGradient>
+            
+            <!-- Animated gradient -->
+            <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8">
+                <animate attributeName="stop-color" values="#3b82f6;#8b5cf6;#ec4899;#10b981;#3b82f6" dur="8s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.8">
+                <animate attributeName="stop-color" values="#8b5cf6;#ec4899;#10b981;#3b82f6;#8b5cf6" dur="8s" repeatCount="indefinite"/>
+              </stop>
+            </linearGradient>
+          </defs>
+          
+          <!-- Edges (connections) -->
+          <g class="edges">
+            <line
+              v-for="edge in parallaxGraphEdges"
+              :key="`${edge.from}-${edge.to}`"
+              :x1="getNodePosition(edge.from).x"
+              :y1="getNodePosition(edge.from).y"
+              :x2="getNodePosition(edge.to).x"
+              :y2="getNodePosition(edge.to).y"
+              :stroke="`url(#edgeGradient)`"
+              :stroke-width="edge.strength * 2"
+              :opacity="edge.strength * 0.4"
+              stroke-linecap="round"
+              filter="url(#nodeGlow)"
+            />
+          </g>
+          
+          <!-- Nodes -->
+          <g class="nodes">
+            <g
+              v-for="node in parallaxGraphNodes"
+              :key="node.id"
+              :transform="`translate(${node.x}, ${node.y})`"
+            >
+              <!-- Outer glow ring -->
+              <circle
+                :r="node.size + 8"
+                :fill="node.color"
+                opacity="0.2"
+                filter="url(#nodeGlow)"
+              >
+                <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              
+              <!-- Main node -->
+              <circle
+                :r="node.size"
+                :fill="node.color"
+                :stroke="node.color"
+                stroke-width="2"
+                filter="url(#nodeGlow)"
+                class="cursor-pointer transition-all duration-300 hover:scale-125"
+              >
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              
+              <!-- Inner highlight -->
+              <circle
+                :r="node.size * 0.4"
+                fill="white"
+                opacity="0.6"
+              />
+              
+              <!-- Node label -->
+              <text
+                y="node.size + 20"
+                text-anchor="middle"
+                fill="white"
+                font-size="10"
+                font-weight="600"
+                class="pointer-events-none"
+              >
+                {{ node.id }}
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      
+      <!-- Parallax Content Layer -->
+      <div 
+        class="relative z-10 h-full flex items-center justify-center"
+        :style="{ transform: `translateY(${parallaxOffset * 0.2}px)` }"
+      >
+        <div class="text-center px-4 max-w-4xl mx-auto">
+          <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Knowledge Graph Intelligence
+            <span class="block text-2xl md:text-3xl text-blue-200 mt-2 font-normal">
+              Connecting 127+ Biomedical Data Sources
+            </span>
+          </h2>
+          <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Every node represents a data source. Every connection represents a verifiable relationship. 
+            Every path leads to actionable intelligence.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              @click="handleCTAClick('free_assessment', 'parallax')"
+              class="px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105"
+            >
+              Get Free Assessment
+            </button>
+            <button 
+              @click="handleCTAClick('see_first_report', 'parallax')"
+              class="px-8 py-4 bg-blue-600/20 backdrop-blur-sm border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-blue-600/30 transition-all"
+            >
+              See Your First Report
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decorative particles -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          v-for="i in 20"
+          :key="i"
+          class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40"
+          :style="{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            transform: `translateY(${parallaxOffset * (0.1 + Math.random() * 0.2)}px)`
+          }"
+        >
+          <div class="w-full h-full bg-blue-400 rounded-full animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- For Small Teams Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-teal-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-2 border-blue-200">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-300 mb-4">
+              <span class="text-blue-700 text-sm font-bold">For Small VCs & Biotechs</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Enterprise Intelligence Without Enterprise Complexity
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Built for teams that need institutional-grade intelligence but don't have enterprise IT budgets or timelines.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+              <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">No Enterprise IT Required</h3>
+              <p class="text-sm text-gray-600">
+                We handle all infrastructure. No IT team needed. No months-long implementation cycles.
+              </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-6 border border-teal-200">
+              <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Set Up in Days, Not Months</h3>
+              <p class="text-sm text-gray-600">
+                Get your first intelligence report in 48-72 hours. No long implementation timelines.
+              </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+              <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Pricing That Scales</h3>
+              <p class="text-sm text-gray-600">
+                No six-figure annual commitments. Pay per project or monthly plans that scale with your needs.
+              </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200">
+              <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Direct Founder Access</h3>
+              <p class="text-sm text-gray-600">
+                Work directly with John Round, not junior consultants. Personal service, not enterprise bureaucracy.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-600">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Perfect for Small Teams</h4>
+                <p class="text-gray-700 text-sm mb-3">
+                  Whether you're a 3-person VC firm or a 20-person biotech startup, Bio KGnome scales to your needs. 
+                  No minimum team size. No enterprise requirements. Just intelligence when you need it.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-gray-700 border border-gray-200">3-5 person teams</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-gray-700 border border-gray-200">Project-based pricing</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-gray-700 border border-gray-200">48-hour turnaround</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-gray-700 border border-gray-200">No IT required</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -539,71 +1099,50 @@ onUnmounted(() => {
               <span class="text-red-600 text-sm font-semibold">The Challenge</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              The Cost of Slow, Incomplete Intelligence
+              Biotech Companies Drown in Data. They Starve for Synthesis.
             </h2>
-            <ul class="space-y-4 text-gray-600">
-              <li class="flex items-start">
-                <svg class="w-6 h-6 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-                <span><strong class="text-gray-900">VCs:</strong> 2-3 month due diligence delays = missed deals, lost opportunities</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-6 h-6 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-                <span><strong class="text-gray-900">Pharma:</strong> Incomplete competitive intelligence = billions in wasted R&D</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-6 h-6 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-                <span><strong class="text-gray-900">Biotech:</strong> Hidden target-disease connections missed = years of lost time</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-6 h-6 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-                <span><strong class="text-gray-900">All:</strong> Fragmented data sources = blind spots that cost millions</span>
-              </li>
-            </ul>
+            <p class="text-lg text-gray-600 mb-4">
+              Every critical decision requires connecting gene → mechanism, target → pathway, drug → competitor. 
+              Traditionally, this requires weeks of analyst time, scattered subscriptions, and expensive consultants.
+            </p>
+            <p class="text-lg text-gray-600">
+              <strong class="text-gray-900">Bio KGnome compresses that to seconds.</strong>
+            </p>
           </div>
           <div>
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-100 mb-6">
               <span class="text-green-600 text-sm font-semibold">Our Solution</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Novel Multi-Hop Intelligence: What Others Can't See
+              Your Private, Always-On Intelligence Engine
             </h2>
-            <ul class="space-y-4 text-gray-600">
+            <p class="text-lg text-gray-600 mb-6">
+              A custom knowledge graph—powered by your science, your market, and your competitors—that delivers 
+              instant, evidence-grounded answers to your hardest questions.
+            </p>
+            <ul class="space-y-3 text-gray-600 mb-8">
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span><strong class="text-gray-900">Simultaneous 100+ API queries</strong> - The only platform that queries the entire biomedical knowledge graph at once. No sequential searches. No blind spots.</span>
+                <span><strong class="text-gray-900">Custom to Your Programs</strong> - Built around your molecules, competitors, and therapeutic area</span>
               </li>
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span><strong class="text-gray-900">Multi-hop reasoning</strong> - Discover hidden connections: Disease → Gene → Drug → Mechanism → Biomarker. See relationships competitors miss.</span>
+                <span><strong class="text-gray-900">Evidence-Grounded</strong> - Every insight cites exact sources (DrugBank, ClinicalTrials.gov, PubMed)</span>
               </li>
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span><strong class="text-gray-900">Real-time comprehensive analysis</strong> - NCATS Translator-backed infrastructure. Production-ready. Trusted by NIH. Available nowhere else.</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span><strong class="text-gray-900">Commercial advantage</strong> - Get answers in 2-5 days vs. 2-3 months. Reduce risk. Accelerate deals. Make decisions with complete intelligence.</span>
+                <span><strong class="text-gray-900">No Hallucinations</strong> - Restricted to verifiable knowledge graph content</span>
               </li>
             </ul>
             <div class="mt-8">
               <button 
-                @click="handleCTAClick('free_consultation', 'page')"
+                @click="handleCTAClick('free_assessment', 'problem_solution')"
                 class="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
               Get Free Assessment →
@@ -614,155 +1153,233 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- Services Section - Lead Generation Focused -->
-    <section id="services" class="py-24 bg-gray-50">
+    <!-- Market-Specific Value Propositions -->
+    <section id="markets" class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-4">
-            <span class="text-blue-600 text-sm font-semibold">Our Services</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Market-Specific Intelligence Services
+          <span class="vercel-badge mb-4">For Your Market</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
+            Bio KGnome for R&D, Investment, and Strategic Teams
           </h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Novel multi-hop reasoning capabilities deliver commercial advantage for VCs, pharma, and biotech companies. 
-            See what others can't. Make decisions faster.
+          <p class="text-xl text-vercel-gray-600 max-w-2xl mx-auto font-normal">
+            Each market gets specific value. Here's what matters to you.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Service 1 -->
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
-            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- VCs -->
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Due Diligence Services</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">
-              <strong>For VCs & Pharma:</strong> Complete technical/scientific due diligence in 2-5 days. 
-              Multi-hop queries reveal hidden risks and opportunities. Reduce investment mistakes. Accelerate deal closure.
+            <h3 class="text-xl font-bold text-gray-900 mb-3">For VCs</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Complete due diligence in 2-5 days vs. 2-3 months.</strong> Reduce risk, accelerate deals, avoid $2-5M mistakes.
             </p>
-            <ul class="text-sm text-gray-500 space-y-2 mb-6">
-              <li>✓ Target validation via 100+ API simultaneous query</li>
-              <li>✓ Competitive landscape with hidden connections revealed</li>
-              <li>✓ Risk evaluation using novel multi-hop reasoning</li>
+            <ul class="space-y-2 text-xs text-gray-600 mb-6">
+              <li>✓ Identify hidden competitive threats</li>
+              <li>✓ Validate scientific claims quickly</li>
+              <li>✓ Discover white space opportunities</li>
+              <li>✓ Cross-portfolio intelligence engine</li>
             </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              <strong>Value:</strong> $25k–$75k saved per partner/year
+            </p>
             <button 
-              @click="handleCTAClick('free_consultation', 'page')"
-              class="w-full px-4 py-2 bg-blue-50 text-blue-600 rounded-lg font-semibold hover:bg-blue-100 transition-colors text-sm"
+              @click="handleMarketCTAClick('vc', 'markets')"
+              class="w-full vercel-button text-sm"
             >
-              Get Free Assessment →
+              Request VC Demo →
             </button>
           </div>
 
-          <!-- Service 2 -->
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
-            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Biotechs -->
+          <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200">
+            <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Drug Discovery Support</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">
-              <strong>For Pharma & Biotech:</strong> Discover novel target-disease-drug connections others miss. 
-              Multi-hop reasoning reveals unexpected mechanisms. Accelerate pipeline decisions. Reduce R&D waste.
+            <h3 class="text-xl font-bold text-gray-900 mb-3">For Biotechs</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Target validation, competitive intelligence, fundraising support.</strong> No enterprise complexity. No six-figure commitments.
             </p>
-            <ul class="text-sm text-gray-500 space-y-2 mb-6">
-              <li>✓ Novel target identification via multi-hop queries</li>
-              <li>✓ Hidden mechanism discovery across knowledge domains</li>
-              <li>✓ Comprehensive multi-omics integration in one query</li>
+            <ul class="space-y-2 text-xs text-gray-600 mb-6">
+              <li>✓ Target identification & prioritization</li>
+              <li>✓ Mechanism discovery & validation</li>
+              <li>✓ Competitive landscape analysis</li>
+              <li>✓ Investor deck intelligence</li>
             </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              <strong>Value:</strong> $30k–$200k/year in saved analyst time
+            </p>
             <button 
-              @click="handleCTAClick('free_consultation', 'page')"
-              class="w-full px-4 py-2 bg-purple-50 text-purple-600 rounded-lg font-semibold hover:bg-purple-100 transition-colors text-sm"
+              @click="handleMarketCTAClick('biotech', 'markets')"
+              class="w-full vercel-button text-sm"
             >
-              Learn More →
+              Request Biotech Demo →
             </button>
           </div>
 
-          <!-- Service 3 -->
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
-            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Pharma/BD -->
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+            <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Competitive Intelligence</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">
-              <strong>For All Markets:</strong> Real-time competitive landscapes with complete coverage. 
-              Query 100+ sources simultaneously to identify white space opportunities competitors haven't seen.
+            <h3 class="text-xl font-bold text-gray-900 mb-3">For Pharma/BD</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Competitive intelligence, white space opportunities, pipeline optimization.</strong> Real-time landscape analysis.
             </p>
-            <ul class="text-sm text-gray-500 space-y-2 mb-6">
-              <li>✓ Complete therapeutic area mapping via simultaneous queries</li>
-              <li>✓ Hidden patent & publication connections revealed</li>
-              <li>✓ Novel biomarker discovery through multi-hop reasoning</li>
+            <ul class="space-y-2 text-xs text-gray-600 mb-6">
+              <li>✓ Competitive program discovery</li>
+              <li>✓ White space identification</li>
+              <li>✓ BD cycle acceleration</li>
+              <li>✓ Pipeline repositioning</li>
             </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              <strong>Value:</strong> $50k–$250k annually in faster BD research
+            </p>
             <button 
-              @click="handleCTAClick('free_consultation', 'page')"
-              class="w-full px-4 py-2 bg-orange-50 text-orange-600 rounded-lg font-semibold hover:bg-orange-100 transition-colors text-sm"
+              @click="handleMarketCTAClick('pharma', 'markets')"
+              class="w-full vercel-button text-sm"
             >
-              Request Analysis →
+              Request Pharma Demo →
             </button>
           </div>
 
-          <!-- Service 4 -->
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300">
-            <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          <!-- CROs/Translational -->
+          <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-200">
+            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Integration</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">
-              Deploy knowledge graph infrastructure in your organization. We build, integrate, and train your team.
+            <h3 class="text-xl font-bold text-gray-900 mb-3">For CROs/Translational</h3>
+            <p class="text-sm text-gray-700 mb-4">
+              <strong>Biomarker discovery, mechanism analysis, trial design support.</strong> Scientific intelligence at scale.
             </p>
-            <ul class="text-sm text-gray-500 space-y-2 mb-6">
-              <li>✓ Custom API development</li>
-              <li>✓ Data source integration</li>
-              <li>✓ Team training & support</li>
+            <ul class="space-y-2 text-xs text-gray-600 mb-6">
+              <li>✓ Biomarker identification</li>
+              <li>✓ Mechanism of action analysis</li>
+              <li>✓ Trial endpoint optimization</li>
+              <li>✓ Client value acceleration</li>
             </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              <strong>Value:</strong> $20k–$150k annually per program
+            </p>
             <button 
-              @click="handleCTAClick('free_consultation', 'page')"
-              class="w-full px-4 py-2 bg-teal-50 text-teal-600 rounded-lg font-semibold hover:bg-teal-100 transition-colors text-sm"
+              @click="handleMarketCTAClick('cro', 'markets')"
+              class="w-full vercel-button text-sm"
             >
-              Schedule Demo →
+              Request CRO Demo →
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Results/Case Studies Section -->
-    <section id="results" class="py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- What You Get Section -->
+    <section id="services" class="vercel-section bg-vercel-gray-50">
+      <div class="vercel-container">
         <div class="text-center mb-16">
-          <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-100 mb-4">
-            <span class="text-green-600 text-sm font-semibold">Proven Results</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Commercial Value Delivered
+          <span class="vercel-badge mb-4">What You Get</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
+            Your Always-On Intelligence Engine
           </h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Novel multi-hop reasoning delivers measurable ROI: faster decisions, reduced risk, discovered opportunities
+          <p class="text-xl text-vercel-gray-600 max-w-2xl mx-auto font-normal">
+            Simply ask a question. Bio KGnome returns a structured, documented, defensible answer, 
+            backed by your customized knowledge graph.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Capability 1 -->
+          <div class="vercel-card-hover p-6">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-3">Custom Knowledge Graph</h3>
+            <p class="text-sm text-vercel-gray-600 mb-4">
+              Tailored to your targets, indications, competitors, and biomarkers. Always up-to-date with weekly refresh.
+            </p>
+          </div>
+
+          <!-- Capability 2 -->
+          <div class="vercel-card-hover p-6">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-3">AI Research Assistant</h3>
+            <p class="text-sm text-vercel-gray-600 mb-4">
+              Private chat agent tuned to your science. Synthesizes complex data instantly with verifiable citations.
+            </p>
+          </div>
+
+          <!-- Capability 3 -->
+          <div class="vercel-card-hover p-6">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-3">Strategic Intelligence</h3>
+            <p class="text-sm text-vercel-gray-600 mb-4">
+              BD, R&D, and investor-level insight in seconds. Analyze mechanisms, programs, trials, and pipelines on demand.
+            </p>
+          </div>
+
+          <!-- Capability 4 -->
+          <div class="vercel-card-hover p-6">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-3">Enterprise-Grade</h3>
+            <p class="text-sm text-vercel-gray-600 mb-4">
+              Without enterprise complexity. No large IT lift. No six-figure annual commitments. Ideal for Seed–Series C biotechs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vercel-inspired Results Section -->
+    <section id="results" class="vercel-section bg-white">
+      <div class="vercel-container">
+        <div class="text-center mb-16">
+          <span class="vercel-badge border-green-200 bg-green-50 text-green-700 mb-4">Proven Results</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
+            Proven Value: Immediate ROI Across Markets
+          </h2>
+          <p class="text-xl text-vercel-gray-600 max-w-2xl mx-auto font-normal">
+            Better decisions, faster decisions, and more defensible decisions. 
+            Typical savings: $20k–$250k annually depending on use case.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Case Study 1 -->
-          <div class="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 border border-blue-100">
+          <div class="vercel-card-hover p-6">
             <div class="text-4xl mb-4">🎯</div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Target Identification</h3>
             <p class="text-gray-600 mb-4">
               <strong>Challenge:</strong> Identify druggable targets for rare disease with limited research
             </p>
             <p class="text-gray-600 mb-4">
-              <strong>Our Approach:</strong> Novel multi-hop reasoning across 50+ APIs simultaneously - 
-              discovered connections traditional methods missed
+              <strong>Bio KGnome Approach:</strong> Multi-hop reasoning across 127+ APIs—discovered connections traditional methods missed
             </p>
             <div class="bg-white rounded-lg p-4 mb-4">
               <div class="text-2xl font-bold text-blue-600 mb-1">12 Novel Targets</div>
-              <div class="text-sm text-gray-600">3 months saved = $500K+ in R&D costs</div>
+              <div class="text-sm text-gray-600">$500K+ saved, 3 months faster</div>
             </div>
             <p class="text-sm text-gray-500 italic">
               "Found targets we never would have discovered manually" - Biotech Startup CEO
@@ -770,19 +1387,18 @@ onUnmounted(() => {
           </div>
 
           <!-- Case Study 2 -->
-          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+          <div class="vercel-card-hover p-6">
             <div class="text-4xl mb-4">💼</div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Due Diligence</h3>
             <p class="text-gray-600 mb-4">
               <strong>Challenge:</strong> Evaluate acquisition target's scientific validity
             </p>
             <p class="text-gray-600 mb-4">
-              <strong>Our Approach:</strong> Simultaneous query of 100+ APIs with multi-hop reasoning - 
-              revealed 3 competitive threats not in pitch deck
+              <strong>Bio KGnome Approach:</strong> Simultaneous query of 127+ APIs—revealed 3 competitive threats not in pitch deck
             </p>
             <div class="bg-white rounded-lg p-4 mb-4">
               <div class="text-2xl font-bold text-purple-600 mb-1">5 Days</div>
-              <div class="text-sm text-gray-600">vs. 2-3 months traditional = deal acceleration</div>
+              <div class="text-sm text-gray-600">vs. 2-3 months = $2-5M saved</div>
             </div>
             <p class="text-sm text-gray-500 italic">
               "Most comprehensive DD - found risks we would have missed" - Investment Firm Partner
@@ -790,19 +1406,18 @@ onUnmounted(() => {
           </div>
 
           <!-- Case Study 3 -->
-          <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 border border-orange-100">
+          <div class="vercel-card-hover p-6">
             <div class="text-4xl mb-4">📊</div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Competitive Analysis</h3>
             <p class="text-gray-600 mb-4">
               <strong>Challenge:</strong> Understand competitive landscape in therapeutic area
             </p>
             <p class="text-gray-600 mb-4">
-              <strong>Our Approach:</strong> Multi-hop query revealed hidden drug-disease-mechanism connections 
-              across entire therapeutic landscape
+              <strong>Bio KGnome Approach:</strong> Multi-hop query revealed hidden drug-disease-mechanism connections across entire landscape
             </p>
             <div class="bg-white rounded-lg p-4 mb-4">
               <div class="text-2xl font-bold text-orange-600 mb-1">47 White Space</div>
-              <div class="text-sm text-gray-600">Opportunities = potential $B+ pipeline value</div>
+              <div class="text-sm text-gray-600">Opportunities = $B+ pipeline value</div>
             </div>
             <p class="text-sm text-gray-500 italic">
               "Discovered opportunities invisible to traditional analysis" - Pharma Strategy Director
@@ -812,10 +1427,130 @@ onUnmounted(() => {
 
         <div class="text-center mt-12">
           <button 
-            @click="handleCTAClick('free_consultation', 'page')"
-            class="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            @click="handleCTAClick('free_assessment', 'results')"
+            class="vercel-button-primary px-6 py-3 text-base"
           >
-            See How We Can Help Your Company →
+            Get Free Assessment →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Wins Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 border border-green-200 mb-4">
+            <span class="text-green-700 text-sm font-semibold">Quick Wins</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Real Results for Small Teams
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            See how small VCs and biotechs are getting faster, better intelligence
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-l-4 border-blue-600">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2">VC Partner: Found 3 Hidden Competitive Threats in 48 Hours</h3>
+                <p class="text-sm text-gray-700 mb-2">
+                  Evaluating a $45M Series B deal. Bio KGnome revealed 3 undisclosed competitive programs that weren't in the pitch deck.
+                </p>
+                <div class="flex items-center gap-4 text-xs text-gray-600">
+                  <span class="font-semibold text-blue-600">Saved $2M deal mistake</span>
+                  <span>•</span>
+                  <span>48-hour turnaround</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border-l-4 border-teal-600">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2">Biotech CEO: Identified 12 Novel Targets in 5 Days</h3>
+                <p class="text-sm text-gray-700 mb-2">
+                  Rare disease target discovery. Multi-hop reasoning found connections traditional methods missed.
+                </p>
+                <div class="flex items-center gap-4 text-xs text-gray-600">
+                  <span class="font-semibold text-teal-600">$500K+ saved, 3 months faster</span>
+                  <span>•</span>
+                  <span>5-day analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-l-4 border-purple-600">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2">Investment Firm: Complete DD in 5 Days vs. 3 Months</h3>
+                <p class="text-sm text-gray-700 mb-2">
+                  Tight deal timeline. Bio KGnome delivered comprehensive due diligence in 5 days, meeting the deadline.
+                </p>
+                <div class="flex items-center gap-4 text-xs text-gray-600">
+                  <span class="font-semibold text-purple-600">Met tight deadline</span>
+                  <span>•</span>
+                  <span>92% time reduction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-l-4 border-orange-600">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2">Biotech Startup: Discovered White Space Opportunities</h3>
+                <p class="text-sm text-gray-700 mb-2">
+                  Competitive intelligence revealed 23 high-value opportunities invisible to traditional analysis.
+                </p>
+                <div class="flex items-center gap-4 text-xs text-gray-600">
+                  <span class="font-semibold text-orange-600">$200M+ pipeline value</span>
+                  <span>•</span>
+                  <span>72-hour analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button 
+            @click="handleCTAClick('free_assessment', 'quick_wins')"
+            class="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
+          >
+            Get Your Free Assessment →
           </button>
         </div>
       </div>
@@ -826,13 +1561,13 @@ onUnmounted(() => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-4">
-            <span class="text-blue-700 text-sm font-semibold">Real-World Applications</span>
+            <span class="text-blue-700 text-sm font-semibold">Detailed Case Studies</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Detailed Case Studies
+            Deep Dive: How Bio KGnome Delivers Value
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            How knowledge graph engineering delivers measurable value in practical diligence and strategic decision-making
+            Detailed breakdowns of how we've helped VCs and biotechs make better decisions faster
           </p>
         </div>
 
@@ -852,7 +1587,53 @@ onUnmounted(() => {
               </div>
             </div>
 
-            <div class="p-8 md:p-12">
+            <!-- TL;DR Summary -->
+            <div class="bg-gradient-to-r from-blue-50 to-teal-50 border-b border-gray-200 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">TL;DR</span>
+                    <span class="text-sm font-semibold text-gray-700">Quick Summary</span>
+                  </div>
+                  <div class="grid md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                      <div class="text-2xl font-bold text-blue-600 mb-1">5 Days</div>
+                      <div class="text-xs text-gray-600">vs. 2-3 months traditional DD</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-bold text-red-600 mb-1">3 Critical</div>
+                      <div class="text-xs text-gray-600">Risks identified (not in pitch deck)</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-bold text-green-600 mb-1">$45M</div>
+                      <div class="text-xs text-gray-600">Deal value informed by analysis</div>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-700 mb-4">
+                    <strong>Outcome:</strong> VC found 3 hidden competitive threats and safety concerns in 5 days. 
+                    Negotiated 20% lower valuation, added milestone-based tranches, and closed deal on time. 
+                    Saved $2-5M in potential mistakes.
+                  </p>
+                </div>
+                <button
+                  @click="expandedCaseStudy1 = !expandedCaseStudy1"
+                  class="flex-shrink-0 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  {{ expandedCaseStudy1 ? 'Show Less' : 'Read Full Case Study' }}
+                  <svg 
+                    class="w-4 h-4 inline-block ml-2 transition-transform"
+                    :class="{ 'rotate-180': expandedCaseStudy1 }"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div v-show="expandedCaseStudy1" class="p-8 md:p-12">
               <!-- Challenge -->
               <div class="mb-8">
                 <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
@@ -882,7 +1663,7 @@ onUnmounted(() => {
               <div class="mb-8">
                 <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
-                  Our Knowledge Graph Approach
+                  Bio KGnome Approach
                 </h4>
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                   <p class="text-gray-700 leading-relaxed mb-4">
@@ -1281,7 +2062,7 @@ onUnmounted(() => {
 
               <!-- Knowledge Graph Value -->
               <div class="bg-gradient-to-r from-teal-50 to-blue-50 border border-teal-200 p-6 rounded-lg">
-                <h5 class="font-bold text-gray-900 mb-3">Why Knowledge Graph Engineering Made the Difference:</h5>
+                <h5 class="font-bold text-gray-900 mb-3">Why Bio KGnome Made the Difference:</h5>
                 <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
                   <div>
                     <strong>Traditional Approach Limitations:</strong>
@@ -1293,12 +2074,12 @@ onUnmounted(() => {
                     </ul>
                   </div>
                   <div>
-                    <strong>Knowledge Graph Advantages:</strong>
+                    <strong>Bio KGnome Advantages:</strong>
                     <ul class="list-disc list-inside mt-1 space-y-1">
                       <li>Simultaneous query of 127+ databases</li>
                       <li>Multi-hop reasoning reveals hidden connections</li>
                       <li>48-hour turnaround time</li>
-                      <li>Discovers non-obvious relationships via graph traversal</li>
+                      <li>IIT-developed graph traversal technology</li>
                     </ul>
                   </div>
                 </div>
@@ -1323,7 +2104,53 @@ onUnmounted(() => {
               </div>
             </div>
 
-            <div class="p-8 md:p-12">
+            <!-- TL;DR Summary -->
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-gray-200 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">TL;DR</span>
+                    <span class="text-sm font-semibold text-gray-700">Quick Summary</span>
+                  </div>
+                  <div class="grid md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                      <div class="text-2xl font-bold text-purple-600 mb-1">72 Hours</div>
+                      <div class="text-xs text-gray-600">vs. 3-4 months traditional CI</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-bold text-green-600 mb-1">23 High-Value</div>
+                      <div class="text-xs text-gray-600">White space opportunities found</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-bold text-blue-600 mb-1">$200M+</div>
+                      <div class="text-xs text-gray-600">NPV from better target selection</div>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-700 mb-4">
+                    <strong>Outcome:</strong> Biotech discovered 34 additional competitive programs (60% of landscape was unknown). 
+                    Identified 23 high-value white space opportunities. Pivoted pipeline priorities, saved $25M in R&D, 
+                    and accelerated 2 cross-indication expansions.
+                  </p>
+                </div>
+                <button
+                  @click="expandedCaseStudy2 = !expandedCaseStudy2"
+                  class="flex-shrink-0 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  {{ expandedCaseStudy2 ? 'Show Less' : 'Read Full Case Study' }}
+                  <svg 
+                    class="w-4 h-4 inline-block ml-2 transition-transform"
+                    :class="{ 'rotate-180': expandedCaseStudy2 }"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div v-show="expandedCaseStudy2" class="p-8 md:p-12">
               <!-- Challenge -->
               <div class="mb-8">
                 <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
@@ -1358,7 +2185,7 @@ onUnmounted(() => {
               <div class="mb-8">
                 <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
-                  Our Knowledge Graph Approach
+                  Bio KGnome Approach
                 </h4>
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                   <p class="text-gray-700 leading-relaxed mb-4">
@@ -1888,7 +2715,7 @@ onUnmounted(() => {
 
               <!-- Knowledge Graph Value -->
               <div class="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 p-6 rounded-lg">
-                <h5 class="font-bold text-gray-900 mb-3">Why Knowledge Graph Engineering Was Essential:</h5>
+                <h5 class="font-bold text-gray-900 mb-3">Why Bio KGnome Was Essential:</h5>
                 <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
                   <div>
                     <strong>Traditional CI Limitations:</strong>
@@ -1919,15 +2746,69 @@ onUnmounted(() => {
         <!-- CTA -->
         <div class="text-center mt-16">
           <p class="text-xl text-gray-700 mb-6">
-            Ready to leverage knowledge graph engineering for your strategic decisions?
+            Ready to leverage Bio KGnome for your strategic decisions?
           </p>
           <button 
-            @click="handleCTAClick('free_consultation', 'page')"
-            class="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            @click="handleCTAClick('free_assessment', 'cases')"
+            class="vercel-button-primary px-6 py-3 text-base"
           >
-            Get Your Free Strategic Assessment →
+            Get Free Assessment →
           </button>
         </div>
+    </section>
+
+    <!-- Example Questions Section -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="vercel-badge mb-4">Example Questions</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Questions Bio KGnome Can Answer
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            All answers come with citations. BD-ready. Diligence-ready. Boardroom-ready.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-600">
+            <p class="text-gray-900 font-semibold mb-2">
+              "What KRAS G12C inhibitors have Phase 2 data in NSCLC, and how do they compare mechanistically?"
+            </p>
+            <p class="text-sm text-gray-600">Multi-hop query across ClinicalTrials.gov, ChEMBL, and Reactome</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-600">
+            <p class="text-gray-900 font-semibold mb-2">
+              "Who are the top competitors entering this indication in the next 24 months?"
+            </p>
+            <p class="text-sm text-gray-600">Competitive intelligence via USPTO, ClinicalTrials.gov, and DrugBank</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-purple-600">
+            <p class="text-gray-900 font-semibold mb-2">
+              "What biomarkers predict response for our target pathway?"
+            </p>
+            <p class="text-sm text-gray-600">Biomarker discovery through DisGeNET, MyGene, and PharmGKB</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-600">
+            <p class="text-gray-900 font-semibold mb-2">
+              "What risks should we highlight in our investor deck?"
+            </p>
+            <p class="text-sm text-gray-600">Risk analysis via FAERS, SEMMEDDB, and competitive landscape</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button 
+            @click="handleCTAClick('see_first_report', 'examples')"
+            class="vercel-button-primary px-8 py-4 text-lg font-semibold"
+          >
+            See Your First Report in 48 Hours →
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Technology Differentiator -->
@@ -1935,43 +2816,44 @@ onUnmounted(() => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
-            <span class="text-blue-400 text-sm font-semibold">Our Technology Advantage</span>
+            <span class="text-blue-400 text-sm font-semibold">Market-Leading Maturity</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            Novel Technology: What Makes Us Different
+            Technology That Builds Trust
           </h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-            <strong>Only platform</strong> that queries 100+ biomedical APIs simultaneously with multi-hop reasoning. 
-            NCATS Translator-backed. Production-ready. Available nowhere else commercially.
+            Mature, purpose-built technology sets Bio KGnome apart. 
+            IIT-developed. NIH/NCATS-backed. Production-grade.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Simultaneous Query</h3>
-            <p class="text-gray-300">100+ APIs queried at once - unique capability. No sequential searches. Complete coverage.</p>
+            <h3 class="text-xl font-bold mb-2">Multi-Hop Inference</h3>
+            <p class="text-gray-300">Traverse graph edges to discover connections: Drug → Target → Pathway → Disease. We find the biological "why" behind relationships.</p>
           </div>
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Multi-Hop Reasoning</h3>
-            <p class="text-gray-300">Novel capability: Discover Disease→Gene→Drug→Mechanism→Biomarker connections others miss</p>
+            <h3 class="text-xl font-bold mb-2">Semantic Precision</h3>
+            <p class="text-gray-300">Distinguish between "correlated with" and "causes"—a critical distinction for drug development that standard AI cannot make.</p>
           </div>
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Commercial Advantage</h3>
-            <p class="text-gray-300">NCATS Translator technology. Production-ready. Government-backed. Available commercially only through us.</p>
+            <h3 class="text-xl font-bold mb-2">Unified Provenance</h3>
+            <p class="text-gray-300">Every claim outputs a traceable path with verifiable data edges. Audit-ready for regulatory submissions and grant funding.</p>
           </div>
         </div>
 
         <div class="bg-gradient-to-r from-blue-600 to-teal-600 rounded-xl p-8 text-center">
-          <h3 class="text-2xl font-bold mb-4">Want to See It in Action?</h3>
-          <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Schedule a live demo and see how we can transform your biotech research process
-          </p>
-          <button 
-            @click="handleDemoClick('page')"
-            class="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-xl"
-          >
-            Schedule Live Demo
-          </button>
+            <h3 class="text-2xl font-bold mb-4">See Bio KGnome in Action</h3>
+            <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Schedule a live demo and see how Bio KGnome's verifiable data edges reveal hidden risks and opportunities. 
+              Every claim is traceable. Every path is provable.
+            </p>
+            <button 
+              @click="handleDemoClick('technology')"
+              class="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-xl"
+            >
+              Schedule Live Demo
+            </button>
         </div>
       </div>
     </section>
@@ -1984,11 +2866,10 @@ onUnmounted(() => {
             <span class="text-blue-600 text-sm font-semibold">Data Sources</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            The Only Platform That Queries Everything Simultaneously
+            Bio KGnome: 127+ Biomedical Databases, One Query
           </h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            <strong>Novel capability:</strong> Query 100+ biomedical knowledge graphs simultaneously in real-time. 
-            No other commercial platform offers this. Complete coverage. No blind spots.
+            Query 127+ biomedical knowledge graphs simultaneously via Bio KGnome. IIT-developed. NIH/NCATS-backed. Complete coverage.
           </p>
         </div>
 
@@ -2050,7 +2931,7 @@ onUnmounted(() => {
                   <div class="font-semibold text-gray-900 truncate" :title="graph">
                     {{ graph }}
                   </div>
-                  <div class="text-xs text-gray-500 mt-1">Knowledge Graph API</div>
+                  <div class="text-xs text-gray-500 mt-1">Bio KGnome Network</div>
                 </div>
               </div>
             </div>
@@ -2088,10 +2969,10 @@ onUnmounted(() => {
               Want to see how we can leverage these knowledge graphs for your project?
             </p>
             <button 
-              @click="handleCTAClick('free_consultation', 'page')"
+              @click="handleCTAClick('free_assessment', 'knowledge_graphs')"
               class="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
             >
-              Get Free Consultation →
+              Get Free Assessment →
             </button>
           </div>
         </div>
@@ -2117,13 +2998,13 @@ onUnmounted(() => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-4">
-            <span class="text-blue-600 text-sm font-semibold">About ByoticaBio</span>
+            <span class="text-blue-600 text-sm font-semibold">About BioticaBio</span>
             </div>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Strategic Consulting, Powered by Institutional Technology
             </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Where government-backed research meets commercial intelligence. ByoticaBio combines 
+            Where government-backed research meets commercial intelligence. BioticaBio combines 
             institutional credibility with startup agility to deliver faster, more comprehensive 
             biotech intelligence than traditional consultancies.
           </p>
@@ -2140,7 +3021,7 @@ onUnmounted(() => {
                 Powered by Government-Backed, Institutionally-Validated Technology
               </h3>
               <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                ByoticaBio leverages production-grade platforms funded by the National Institutes of Health 
+                BioticaBio leverages production-grade platforms funded by the National Institutes of Health 
                 and developed by leading research institutions. This isn't experimental technology—it's 
                 proven, validated, and trusted by the biomedical research community.
               </p>
@@ -2262,7 +3143,7 @@ onUnmounted(() => {
           <div class="text-center mb-12">
             <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Team</h3>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Combining deep biotech industry experience with cutting-edge knowledge graph engineering expertise
+              Combining deep biotech industry experience with IIT-developed Bio KGnome expertise
             </p>
           </div>
 
@@ -2374,7 +3255,7 @@ onUnmounted(() => {
                   <h3 class="text-2xl font-bold text-gray-900 mb-2">Srikanth Amirneni</h3>
                   <p class="text-lg text-gray-600 mb-4">Knowledge Graph Engineer</p>
                   <p class="text-gray-700 mb-4">
-                    Leading knowledge graph engineering research and development at Indian Institute of Technology Hyderabad. 
+                    Leading Bio KGnome research and development at Indian Institute of Technology Hyderabad. 
                     Pioneering work in distributed knowledge graph architectures and multi-hop reasoning systems.
                   </p>
                 </div>
@@ -2390,7 +3271,7 @@ onUnmounted(() => {
                 </div>
                 <div>
                       <p class="font-semibold text-gray-900">Indian Institute of Technology Hyderabad</p>
-                      <p class="text-sm text-gray-600">Knowledge Graph Engineering Research</p>
+                      <p class="text-sm text-gray-600">Bio KGnome Research (IIT)</p>
                 </div>
                   </div>
                   <div class="flex items-center gap-3">
@@ -2419,15 +3300,16 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Why Choose ByoticaBio -->
+          <!-- Why Choose BioticaBio -->
           <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Why Choose ByoticaBio?</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Why Choose BioticaBio?</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                 <h4 class="text-xl font-bold text-gray-900 mb-2">Institutional Credibility</h4>
                 <p class="text-gray-600">
-                  <strong>Powered by NIH/NCATS technology</strong> and knowledge graph engineering first developed at Indian Institute of Technology. 
-                  Government-backed, academically validated, production-grade infrastructure.
+                  <strong>Powered by NIH/NCATS technology</strong> and Bio KGnome—IIT-developed knowledge graph engineering. 
+                  Government-backed, academically validated, production-grade infrastructure. 
+                  <strong>Think Palantir's enterprise intelligence, specialized for biotech.</strong>
                 </p>
                 </div>
               <div>
@@ -2463,7 +3345,7 @@ onUnmounted(() => {
               Connected to the Biomedical Intelligence Ecosystem
             </h3>
             <p class="text-gray-600 max-w-2xl mx-auto">
-              ByoticaBio operates within a network of leading institutions, research platforms, 
+              BioticaBio operates within a network of leading institutions, research platforms, 
               and data providers. This ecosystem positioning provides access to technology and 
               intelligence capabilities typically reserved for large research institutions.
             </p>
@@ -2567,16 +3449,16 @@ onUnmounted(() => {
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <button 
-            @click="handleCTAClick('free_consultation', 'page')"
+            @click="handleCTAClick('free_assessment', 'contact')"
             class="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl hover:shadow-2xl transform hover:scale-105"
           >
-            Get Free Assessment
+            Get Free 30-Min Assessment
           </button>
           <button 
-            @click="handleDemoClick('page')"
+            @click="handleDemoClick('contact')"
             class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-all"
           >
-            Schedule Live Demo
+            See Your First Report in 48 Hours
           </button>
         </div>
 
@@ -2603,8 +3485,8 @@ onUnmounted(() => {
         <div class="p-8">
           <div class="flex justify-between items-center mb-6">
             <div>
-              <h3 class="text-3xl font-bold text-gray-900">Get Free Consultation</h3>
-              <p class="text-gray-600 mt-2">Tell us about your project and we'll respond within 24 hours</p>
+              <h3 class="text-3xl font-bold text-gray-900">Get Free 30-Min Assessment</h3>
+              <p class="text-gray-600 mt-2">Tell us about your project and we'll respond within 24 hours with a personalized assessment</p>
             </div>
             <button 
               @click="showContactForm = false"
@@ -2804,7 +3686,7 @@ onUnmounted(() => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h4 class="text-white font-bold text-lg mb-4">ByoticaBio.ai</h4>
+            <h4 class="text-white font-bold text-lg mb-4">BioticaBio.com</h4>
             <p class="text-sm text-gray-500">
               Advanced knowledge graph intelligence platform. Powered by institutional technology and expertise.
             </p>
@@ -2829,14 +3711,14 @@ onUnmounted(() => {
           <div>
             <h4 class="text-white font-semibold mb-4">Contact</h4>
             <ul class="space-y-2 text-sm">
-              <li><button @click="handleCTAClick('free_consultation', 'page')" class="hover:text-white transition-colors text-left">Free Consultation</button></li>
+              <li><button @click="handleCTAClick('free_assessment', 'footer')" class="hover:text-white transition-colors text-left">Free Assessment</button></li>
               <li><button @click="handleDemoClick('page')" class="hover:text-white transition-colors text-left">Schedule Demo</button></li>
               <li class="text-gray-500">john@bioticabio.com</li>
             </ul>
           </div>
         </div>
         <div class="border-t border-gray-800 pt-8 text-center text-sm">
-          <p>&copy; 2024 ByoticaBio.ai Consulting. All rights reserved.</p>
+          <p>&copy; 2024 BioticaBio.com Consulting. All rights reserved.</p>
         </div>
       </div>
     </footer>
