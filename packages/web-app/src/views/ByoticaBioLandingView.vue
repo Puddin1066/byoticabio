@@ -23,9 +23,9 @@ import { sendTestEmailTo } from '../utils/sendTestEmailTo'
 
 // SEO Meta Tags
 const siteUrl = 'https://bioticabio.com'
-const siteTitle = 'Bio KGnome: Complete Biotech Due Diligence in 2-5 Days | BioticaBio.com'
-const siteDescription = 'Complete due diligence in 2-5 days vs. 2-3 months. Find hidden competitive threats, validate scientific claims, and discover white space opportunities. Used by VCs to avoid $2-5M mistakes. Evidence-backed intelligence from 127+ biomedical databases.'
-const siteKeywords = 'biotech due diligence, VC due diligence, biotech intelligence, knowledge graph, competitive intelligence, drug discovery, target identification, pharma competitive intelligence, biomedical databases, multi-hop reasoning, IIT-developed, NIH/NCATS, Bio KGnome, BioticaBio'
+const siteTitle = 'Bio KGnome: AI Chat for Biomedical Research | Custom Knowledge Graph from 127+ APIs | BioticaBio.com'
+const siteDescription = 'AI chat interface powered by a custom knowledge graph from 127+ biomedical APIs. Ask highly specific questions and get instant, evidence-backed answers. Vector-enabled semantic search. Not reports—AI that understands biomedical context.'
+const siteKeywords = 'AI chat biomedical, custom knowledge graph, biomedical AI research, 127+ API integration, vector database biomedical, AI research assistant, biomedical knowledge graph, semantic search biomedical, multi-hop reasoning, IIT-developed, NIH/NCATS, Bio KGnome, BioticaBio, biomedical RAG, evidence-backed AI'
 
 useHead({
   title: siteTitle,
@@ -79,7 +79,7 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ProfessionalService',
         '@id': `${siteUrl}#service`,
@@ -148,7 +148,7 @@ useHead({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Organization',
         '@id': `${siteUrl}#organization`,
@@ -174,7 +174,7 @@ useHead({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         '@id': `${siteUrl}#website`,
@@ -196,7 +196,7 @@ useHead({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: [
@@ -778,20 +778,21 @@ onUnmounted(() => {
           </div>
 
           <h1 class="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight tracking-tight">
-            Due Diligence Taking 2-3 Months?
-            <span class="block text-red-600 mt-2 text-3xl md:text-4xl">
-              You're Missing Critical Risks.
+            Ask Any Biomedical Question.
+            <span class="block text-blue-600 mt-2 text-3xl md:text-4xl">
+              Get Evidence-Backed Answers in Seconds.
             </span>
           </h1>
 
           <p class="text-xl md:text-2xl text-vercel-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed font-normal">
-            Complete DD in <strong class="text-black">2-5 days</strong> with evidence-backed intelligence. 
-            Used by VCs to avoid <strong class="text-black">$2-5M mistakes</strong> and biotechs to accelerate research programs.
+            Your <strong class="text-black">AI Research Assistant</strong> powered by a <strong class="text-black">custom knowledge graph</strong> 
+            built from <strong class="text-black">127+ biomedical APIs</strong>. Ask highly specific questions and get instant, 
+            evidence-backed answers.
           </p>
           
           <p class="text-lg text-vercel-gray-500 mb-12 max-w-2xl mx-auto">
-            Find hidden competitive threats, validate scientific claims, and discover white space opportunities. 
-            <strong class="text-vercel-gray-700">Evidence-backed. BD-ready. Boardroom-ready.</strong>
+            Not reports. Not dashboards. <strong class="text-vercel-gray-700">AI chat that understands biomedical context.</strong> 
+            Every answer cites exact sources—DrugBank, ClinicalTrials.gov, PubMed, and 124+ more.
           </p>
 
           <!-- Primary CTAs -->
@@ -806,29 +807,29 @@ onUnmounted(() => {
               </svg>
             </button>
             <button 
-              @click="handleCTAClick('see_first_report', 'hero')"
+              @click="handleCTAClick('try_ai_chat', 'hero')"
               class="vercel-button px-8 py-4 text-lg font-semibold"
             >
-              See Your First Report in 48 Hours
+              Try AI Chat Free
             </button>
           </div>
 
           <!-- Trust Indicators -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-black mb-2">2-5 Days</div>
-              <div class="text-vercel-gray-600 text-sm font-medium">vs. 2-3 Months</div>
-              <div class="text-xs text-vercel-gray-500 mt-1">Complete due diligence in days, not months</div>
+              <div class="text-4xl md:text-5xl font-bold text-black mb-2">127+ APIs</div>
+              <div class="text-vercel-gray-600 text-sm font-medium">Custom Knowledge Graph</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">Vector-enabled semantic search across biomedical databases</div>
             </div>
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-black mb-2">$25k-$75k</div>
-              <div class="text-vercel-gray-600 text-sm font-medium">Saved Per Partner/Year</div>
-              <div class="text-xs text-vercel-gray-500 mt-1">Typical ROI for small VCs and biotechs</div>
+              <div class="text-4xl md:text-5xl font-bold text-black mb-2">AI Chat</div>
+              <div class="text-vercel-gray-600 text-sm font-medium">Not Reports</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">Ask questions, get instant evidence-backed answers</div>
             </div>
             <div class="text-center">
               <div class="text-4xl md:text-5xl font-bold text-black mb-2">Evidence</div>
               <div class="text-vercel-gray-600 text-sm font-medium">Every Answer Grounded</div>
-              <div class="text-xs text-vercel-gray-500 mt-1">All answers cite exact sources—BD-ready, diligence-ready</div>
+              <div class="text-xs text-vercel-gray-500 mt-1">All answers cite exact sources—DrugBank, ClinicalTrials.gov, PubMed</div>
             </div>
           </div>
         </div>
@@ -954,27 +955,27 @@ onUnmounted(() => {
       >
         <div class="text-center px-4 max-w-4xl mx-auto">
           <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            Knowledge Graph Intelligence
+            Custom Knowledge Graph from 127+ APIs
             <span class="block text-2xl md:text-3xl text-blue-200 mt-2 font-normal">
-              Connecting 127+ Biomedical Data Sources
+              Vector-Enabled AI Chat for Biomedical Research
             </span>
           </h2>
           <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Every node represents a data source. Every connection represents a verifiable relationship. 
-            Every path leads to actionable intelligence.
+            Every node represents a biomedical data source. Every connection enables semantic search. 
+            Ask highly specific questions and get instant, evidence-backed answers from your custom knowledge graph.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              @click="handleCTAClick('free_assessment', 'parallax')"
+              @click="handleCTAClick('try_ai_chat', 'parallax')"
               class="px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105"
             >
-              Get Free Assessment
+              Try AI Chat Free
             </button>
             <button 
-              @click="handleCTAClick('see_first_report', 'parallax')"
+              @click="handleCTAClick('free_assessment', 'parallax')"
               class="px-8 py-4 bg-blue-600/20 backdrop-blur-sm border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-blue-600/30 transition-all"
             >
-              See Your First Report
+              Get Free Assessment
             </button>
           </div>
         </div>
@@ -1099,14 +1100,14 @@ onUnmounted(() => {
               <span class="text-red-600 text-sm font-semibold">The Challenge</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Biotech Companies Drown in Data. They Starve for Synthesis.
+              Every Research Question Requires Connecting 127+ Biomedical Databases
             </h2>
             <p class="text-lg text-gray-600 mb-4">
-              Every critical decision requires connecting gene → mechanism, target → pathway, drug → competitor. 
-              Traditionally, this requires weeks of analyst time, scattered subscriptions, and expensive consultants.
+              Traditional methods: weeks of manual searches, scattered subscriptions, expensive consultants. 
+              You need answers to highly specific questions—not generic reports.
             </p>
             <p class="text-lg text-gray-600">
-              <strong class="text-gray-900">Bio KGnome compresses that to seconds.</strong>
+              <strong class="text-gray-900">Bio KGnome answers your questions in seconds.</strong>
             </p>
           </div>
           <div>
@@ -1114,11 +1115,11 @@ onUnmounted(() => {
               <span class="text-green-600 text-sm font-semibold">Our Solution</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Your Private, Always-On Intelligence Engine
+              AI Chat Powered by Your Custom Knowledge Graph
             </h2>
             <p class="text-lg text-gray-600 mb-6">
-              A custom knowledge graph—powered by your science, your market, and your competitors—that delivers 
-              instant, evidence-grounded answers to your hardest questions.
+              An AI research assistant that understands biomedical context. Ask highly specific questions and get 
+              instant, evidence-backed answers from your custom knowledge graph built from 127+ biomedical APIs.
             </p>
             <ul class="space-y-3 text-gray-600 mb-8">
               <li class="flex items-start">
@@ -1288,11 +1289,11 @@ onUnmounted(() => {
         <div class="text-center mb-16">
           <span class="vercel-badge mb-4">What You Get</span>
           <h2 class="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
-            Your Always-On Intelligence Engine
+            Your AI Research Assistant
           </h2>
           <p class="text-xl text-vercel-gray-600 max-w-2xl mx-auto font-normal">
-            Simply ask a question. Bio KGnome returns a structured, documented, defensible answer, 
-            backed by your customized knowledge graph.
+            Ask highly specific biomedical questions. Get instant, evidence-backed answers from your 
+            custom knowledge graph built from 127+ biomedical APIs. Not reports—AI chat that understands context.
           </p>
         </div>
 
@@ -1306,7 +1307,8 @@ onUnmounted(() => {
             </div>
             <h3 class="text-lg font-semibold text-black mb-3">Custom Knowledge Graph</h3>
             <p class="text-sm text-vercel-gray-600 mb-4">
-              Tailored to your targets, indications, competitors, and biomarkers. Always up-to-date with weekly refresh.
+              Built from 127+ biomedical APIs into a vector-enabled knowledge graph. Custom to your research questions, 
+              not one-size-fits-all. Semantic search across your data sources.
             </p>
           </div>
 
@@ -1317,9 +1319,10 @@ onUnmounted(() => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-black mb-3">AI Research Assistant</h3>
+            <h3 class="text-lg font-semibold text-black mb-3">AI Chat Interface</h3>
             <p class="text-sm text-vercel-gray-600 mb-4">
-              Private chat agent tuned to your science. Synthesizes complex data instantly with verifiable citations.
+              Natural language questions, instant answers. AI chat that understands biomedical context and provides 
+              evidence-backed responses from your custom knowledge graph.
             </p>
           </div>
 
@@ -1330,9 +1333,10 @@ onUnmounted(() => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-black mb-3">Strategic Intelligence</h3>
+            <h3 class="text-lg font-semibold text-black mb-3">Vector-Enabled Search</h3>
             <p class="text-sm text-vercel-gray-600 mb-4">
-              BD, R&D, and investor-level insight in seconds. Analyze mechanisms, programs, trials, and pipelines on demand.
+              Semantic search across 127+ biomedical APIs. Find connections that keyword search misses. 
+              Multi-hop reasoning reveals hidden relationships in your data.
             </p>
           </div>
 
@@ -2771,41 +2775,81 @@ onUnmounted(() => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-600">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-l-4 border-blue-600">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
             <p class="text-gray-900 font-semibold mb-2">
               "What KRAS G12C inhibitors have Phase 2 data in NSCLC, and how do they compare mechanistically?"
             </p>
-            <p class="text-sm text-gray-600">Multi-hop query across ClinicalTrials.gov, ChEMBL, and Reactome</p>
+                <p class="text-sm text-gray-600 mb-2">AI chat queries ClinicalTrials.gov, ChEMBL, and Reactome simultaneously</p>
+                <p class="text-xs text-gray-500 italic">Answer includes: drug names, trial IDs, mechanism comparisons, with citations</p>
+              </div>
+            </div>
           </div>
           
-          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-600">
+          <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border-l-4 border-teal-600">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
             <p class="text-gray-900 font-semibold mb-2">
               "Who are the top competitors entering this indication in the next 24 months?"
             </p>
-            <p class="text-sm text-gray-600">Competitive intelligence via USPTO, ClinicalTrials.gov, and DrugBank</p>
+                <p class="text-sm text-gray-600 mb-2">Vector search across USPTO, ClinicalTrials.gov, and DrugBank</p>
+                <p class="text-xs text-gray-500 italic">Answer includes: company names, pipeline stages, patent filings, with sources</p>
+              </div>
+            </div>
           </div>
           
-          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-purple-600">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-l-4 border-purple-600">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
             <p class="text-gray-900 font-semibold mb-2">
               "What biomarkers predict response for our target pathway?"
             </p>
-            <p class="text-sm text-gray-600">Biomarker discovery through DisGeNET, MyGene, and PharmGKB</p>
+                <p class="text-sm text-gray-600 mb-2">Multi-hop reasoning through DisGeNET, MyGene, and PharmGKB</p>
+                <p class="text-xs text-gray-500 italic">Answer includes: biomarker candidates, validation evidence, clinical associations</p>
+              </div>
+            </div>
           </div>
           
-          <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-600">
+          <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-l-4 border-orange-600">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
             <p class="text-gray-900 font-semibold mb-2">
-              "What risks should we highlight in our investor deck?"
+                  "What are the safety signals and competitive threats for this target-disease combination?"
             </p>
-            <p class="text-sm text-gray-600">Risk analysis via FAERS, SEMMEDDB, and competitive landscape</p>
+                <p class="text-sm text-gray-600 mb-2">AI chat queries FAERS, SEMMEDDB, USPTO, and ClinicalTrials.gov</p>
+                <p class="text-xs text-gray-500 italic">Answer includes: safety data, competitive programs, risk assessment, with citations</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="text-center">
           <button 
-            @click="handleCTAClick('see_first_report', 'examples')"
+            @click="handleCTAClick('try_ai_chat', 'examples')"
             class="vercel-button-primary px-8 py-4 text-lg font-semibold"
           >
-            See Your First Report in 48 Hours →
+            Try AI Chat Free →
           </button>
         </div>
       </div>
@@ -2819,34 +2863,34 @@ onUnmounted(() => {
             <span class="text-blue-400 text-sm font-semibold">Market-Leading Maturity</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            Technology That Builds Trust
+            AI Chat Powered by Custom Knowledge Graph
           </h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-            Mature, purpose-built technology sets Bio KGnome apart. 
+            Vector-enabled semantic search across 127+ biomedical APIs. AI chat that understands biomedical context. 
             IIT-developed. NIH/NCATS-backed. Production-grade.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Multi-Hop Inference</h3>
-            <p class="text-gray-300">Traverse graph edges to discover connections: Drug → Target → Pathway → Disease. We find the biological "why" behind relationships.</p>
+            <h3 class="text-xl font-bold mb-2">AI Chat Interface</h3>
+            <p class="text-gray-300">Natural language questions, instant answers. AI that understands biomedical context and provides evidence-backed responses from your custom knowledge graph.</p>
           </div>
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Semantic Precision</h3>
-            <p class="text-gray-300">Distinguish between "correlated with" and "causes"—a critical distinction for drug development that standard AI cannot make.</p>
+            <h3 class="text-xl font-bold mb-2">Vector-Enabled Search</h3>
+            <p class="text-gray-300">Semantic search across 127+ biomedical APIs. Find connections that keyword search misses. Multi-hop reasoning reveals hidden relationships.</p>
           </div>
           <div class="bg-gray-800 rounded-xl p-6">
-            <h3 class="text-xl font-bold mb-2">Unified Provenance</h3>
-            <p class="text-gray-300">Every claim outputs a traceable path with verifiable data edges. Audit-ready for regulatory submissions and grant funding.</p>
+            <h3 class="text-xl font-bold mb-2">Evidence-Backed Answers</h3>
+            <p class="text-gray-300">Every answer cites exact sources—DrugBank, ClinicalTrials.gov, PubMed, and 124+ more. Traceable, verifiable, audit-ready.</p>
           </div>
         </div>
 
         <div class="bg-gradient-to-r from-blue-600 to-teal-600 rounded-xl p-8 text-center">
-            <h3 class="text-2xl font-bold mb-4">See Bio KGnome in Action</h3>
+            <h3 class="text-2xl font-bold mb-4">Try Bio KGnome AI Chat</h3>
             <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Schedule a live demo and see how Bio KGnome's verifiable data edges reveal hidden risks and opportunities. 
-              Every claim is traceable. Every path is provable.
+              Ask your biomedical questions and see how AI chat powered by a custom knowledge graph provides instant, 
+              evidence-backed answers. Every answer cites exact sources. Every path is traceable.
             </p>
             <button 
               @click="handleDemoClick('technology')"
